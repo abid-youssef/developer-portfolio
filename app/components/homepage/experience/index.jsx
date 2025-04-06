@@ -1,3 +1,5 @@
+'use client';
+
 // @flow strict
 
 import { experiences } from "@/utils/data/experience";
