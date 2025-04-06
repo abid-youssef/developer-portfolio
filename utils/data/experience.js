@@ -1,20 +1,32 @@
 export const experiences = [
   {
     id: 1,
-    title: 'Software Engineer I',
-    company: "Teton Private Ltd.",
-    duration: "(Jan 2022 - Present)"
+    title: "Technical Team Member & Project Manager",
+    company: "IEEE INSAT Computer Society",
+    duration: "(Jan 2025 - Present)"
   },
   {
     id: 2,
-    title: "FullStack Developer",
-    company: "Fiverr (freelance)",
-    duration: "(Jun 2021 - Jan 2022)"
+    title: "Technical Director",
+    company: "Securinets INSAT, The first CyberSecurity Association in Tunisia",
+    duration: "(Sep 2024 - Present)"
   },
   {
     id: 3,
-    title: "Self Employed",
-    company: "Code and build something in everyday.",
-    duration: "(Jan 2018 - Present)"
+    title: 'Web Developer',
+    company: "Freelance",
+    duration: "(Dec 2024 - Present)"
+  },
+  {
+    id: 4,
+    title: "Intern",
+    company: "Pwn & Patch",
+    duration: "(June 2024 - Aug 2024)"
+  },
+  {
+    id: 5,
+    title: "President of the Organizing Committee",
+    company: "The National Cybersecurity Congress",
+    duration: "(Dec 2023 – Apr 2024)"
   }
 ]

@@ -1,20 +1,14 @@
 export const educations = [
   {
     id: 1,
-    title: "Bachelor Degree",
-    duration: "2020 - Present",
-    institution: "National University of Bangladesh",
+    title: "Engineering cycle in Software Engineering",
+    duration: "2022 - Present",
+    institution: "National Institute of Applied Sciences and Technology",
   },
   {
     id: 2,
-    title: "Higher Secondary Certificate",
-    duration: "2018 - 2020",
-    institution: "Noakhali Islamia Kamil Madrasah",
-  },
-  {
-    id: 3,
-    title: "Secondary School Certificate",
-    duration: "2008 - 2018",
-    institution: "Baitus Saif Islamia Madrasah",
+    title: "Baccalaureate in Mathematics with high honors",
+    duration: "2018 - 2022",
+    institution: "El Wafa High School",
   }
 ]

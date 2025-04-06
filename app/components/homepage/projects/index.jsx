@@ -1,4 +1,4 @@
-import { projectsData } from '@/utils/data/projects-data';
+import { projectsData, projectslength } from '@/utils/data/projects-data';
 import ProjectCard from './project-card';
 
 const Projects = () => {
@@ -17,7 +17,7 @@ const Projects = () => {
 
       <div className="pt-24">
         <div className="flex flex-col gap-6">
-          {projectsData.slice(0, 4).map((project, index) => (
+          {projectsData.slice(0, projectslength).map((project, index) => (
             <div
               id={`sticky-card-${index + 1}`}
               key={index}

@@ -1,52 +1,49 @@
 export const projectsData = [
     {
         id: 1,
-        name: 'AI Powered Financial App',
-        description: "Me and my team built an AI-powered financial mobile application. I have developed API using Express, Typescript, OpenAI, AWS, and MongoDB. Used OTP via AWS SES, Google, and Facebook for the authentication system. Built AI assistants using OpenAI's latest model and trained using our dataset. Voice messages are converted to text using AWS Transcribe. The app fetches data from Google Sheets and generates a PDF term sheet, sent via AWS SES.",
-        tools: ['Express', 'MongoDB', 'OpenAI API', 'AWS SES', 'AWS S3', 'Node Mailer', 'Joi', 'Puppeteer', 'EC2', 'PM2', 'Nginx'],
-        role: 'Backend Developer',
+        name: 'SMARTSHIELD - AI-Driven IDR Platform',
+        description: "Secured 2nd place in the CS Challenge at IEEE TSYP12 competition with our project which is an AI-driven cybersecurity platform designed to enhance automatic threat detection, classification, and response. It offers an end-to-end cybersecurity solution from log extraction to automated report generation.",
+        tools: ['Zeek', 'OpenArgus', 'RabbitMQ', 'ELK Stack', 'Docker', 'NestJS', 'React', 'PyTorch', 'FastAPI', 'Go'],
+        role: 'Backend & AI Developer',
         code: '',
         demo: '',
     },
     {
         id: 2,
-        name: 'Travel Agency App',
-        description: 'I have designed and developed a full-stack web app for 2Expedition, a travel agency in Armenia. I created the UI using NextJS, Typescript, MUI, TailwindCSS, Google Maps, Sun-Editor, and React Slick. The app supports multiple languages and currencies. I developed the API using NestJS, Typescript, MySQL, TypeORM, AWS, and Nodemailer. I deployed the front-end app to AWS Amplify and the back-end app to AWS EC2.',
-        tools: ['NextJS', 'Tailwind CSS', "Google Maps", "NestJS", "TypeScript", "MySQL", "AWS S3", "Sun-Editor", "Gmail Passkey"],
+        name: 'X2X Plugin for Hexabot',
+        description: "Won 1st place with the X2X plugin for Hexabot, a visual chatbot conversation flow management tool. X2X is a set of plugins and helpers that enables conversion between different modalities, such as speech, text, and vision.",
+        tools: ['TypeScript', 'Node.js', 'Hexastack'],
         role: 'Full Stack Developer',
         code: '',
         demo: '',
     },
     {
         id: 3,
-        name: 'AI Powered Real Estate',
-        description: 'My team built an AI-based real estate app using Replicate API and OpenAI. We used Express, Typescript, OpenAI, Replicate, Stripe, and Mongoose to develop the API. We utilized NextJS, Formik, TailwindCSS, and other npm libraries for the UI. We have trained multiple AI assistants using the latest GPT model and integrated Replicate API for image processing. We added role-based auth, subscription plans, Cron job scheduling, and payment integration with Stripe.',
-        tools: ['React', 'Bootstrap', 'SCSS', 'Stripe', 'Express', 'TypeScript', 'MongoDB', 'Azure Blob', 'OpenAI API', 'Replicate AI', 'Cronjob', 'JWT'],
+        name: 'Intelligent Network Security Analysis Toolkit',
+        description: "Currently leading the development of INSecAT, a comprehensive web application security scanning platform. The toolkit provides both external (black-box) and internal (white-box) security assessments by integrating multiple cybersecurity technologies.",
+        tools: ['Python', 'NestJS', 'React', 'FastAPI', 'Docker', 'Shodan API', 'Nmap', 'Snyk', 'OWASP ZAP'],
+        role: 'Project Manager & Lead Developer',
         code: '',
-        role: 'Full Stack Developer',
         demo: '',
     },
     {
         id: 4,
-        name: 'Newsroom Management',
-        description: "My team and I developed a newspaper management dashboard application called Newsroom Management. As a front-end developer, I worked on creating the dashboard using NextJS, Material UI, Redux, Calendar, and other necessary npm libraries. We used React Redux to manage the application's state and React-hook-form and Sun Editor to handle forms.",
-        tools: ['NextJS', 'Material UI', 'Redux', 'Sun Editor', "Calendar"],
+        name: 'Phishing Domain Detection & Creation',
+        description: "During my internship at Pwn&Patch, I integrated a component for phishing domain detection (for blue teaming) and phishing domain creation (for red teaming). While also allowing the generation of similar-looking domains for security testing.",
+        tools: ['Dnstwist', 'Python', 'Ruby on Rails', 'Bootstrap'],
+        role: 'Cybersecurity Engineer Intern',
         code: '',
         demo: '',
-        role: 'Full Stack Developer',
+    },
+    {
+        id: 5,
+        name: 'The Boy who dreamt too far...',
+        description: "Won 1st place in the IAC Playground GameJam with our dream-themed video game. The game was built using Unity and C++, featuring pixel art created in Aseprite. We also crafted an engaging pitch using Canva.",
+        tools: ['Unity', 'C++', 'Aseprite', 'Canva'],
+        role: 'Game Developer',
+        code: '',
+        demo: '',
     }
 ];
 
-
-// Do not remove any property.
-// Leave it blank instead as shown below
-
-// {
-//     id: 1,
-//     name: '',
-//     description: "",
-//     tools: [],
-//     role: '',
-//     code: '',
-//     demo: '',
-// },
+export const projectslength = projectsData.length;
