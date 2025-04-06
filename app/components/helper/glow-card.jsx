@@ -1,9 +1,16 @@
 "use client"
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
-const GlowCard = ({ children , identifier}) => {
+const GlowCard = ({ children, identifier }) => {
+  // Add a state to track client-side rendering
+  const [isClient, setIsClient] = useState(false);
+
   useEffect(() => {
+    // Mark that we're now client-side
+    setIsClient(true);
+    
+    // The rest of your code will only run on the client side
     const CONTAINER = document.querySelector(`.glow-container-${identifier}`);
     const CARDS = document.querySelectorAll(`.glow-card-${identifier}`);
 
@@ -66,7 +73,7 @@ const GlowCard = ({ children , identifier}) => {
     return () => {
       document.body.removeEventListener('pointermove', UPDATE);
     };
-  }, [identifier]);
+  }, [identifier, isClient]); // Added isClient to dependencies
 
   return (
     <div className={`glow-container-${identifier} glow-container`}>

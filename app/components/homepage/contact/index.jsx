@@ -52,7 +52,7 @@ function ContactSection() {
                 size={36}
               />    
               <span>
-              {`You've already gotten here, means something doesn't it?`}
+              {`You've already gotten here, hope you like it!`}
               </span>
             </p>
           </div>
