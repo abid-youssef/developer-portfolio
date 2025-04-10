@@ -11,7 +11,7 @@ export const projectsData = [
     {
         id: 2,
         name: 'X2X Plugin for Hexabot',
-        description: "Won 1st place with the X2X plugin for Hexabot, a visual chatbot conversation flow management tool. X2X is a set of plugins and helpers that enables conversion between different modalities, such as speech, text, and vision.",
+        description: "Won 1st place at Orange AI Hackathon with the X2X plugin for Hexabot, a visual chatbot conversation flow management tool. X2X is a set of plugins and helpers that enables conversion between different modalities, such as speech, text, and vision.",
         tools: ['TypeScript', 'Node.js', 'Hexastack'],
         role: 'Full Stack Developer',
         code: '',

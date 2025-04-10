@@ -8,10 +8,10 @@ export const personalData = {
   address: 'Ariana, Tunisia',
   github: 'https://github.com/abid-youssef',
   facebook: 'https://www.facebook.com/youssef.abid.1612',
-  linkedIn: 'linkedin.com/in/youssef-abid-55a250295/',
+  linkedIn: 'https://linkedin.com/in/youssef-abid-55a250295/',
   twitter: '',
   stackOverflow: '',
   leetcode: "",
   devUsername: "",
-  resume: "https://drive.google.com/file/d/1eyutpKFFhJ9X-qpQGKhUNnVRkB5Wer00/view?usp=sharing"
+  resume: "https://rxresu.me/youssef.abid/abid-youssef"
 }
