@@ -8,6 +8,7 @@ import Navbar from "./components/navbar";
 import "./css/card.scss";
 import "./css/globals.scss";
 const inter = Inter({ subsets: ["latin"] });
+import Script from "next/script";
 
 export const metadata = {
   title: "Portfolio of Youssef - Software Engineering Student and Cybersecurity Enthusiast",
