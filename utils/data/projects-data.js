@@ -8,8 +8,17 @@ export const projectsData = [
         code: '',
         demo: '',
     },
-    {
+        {
         id: 2,
+        name: 'Computer Vision X IoT Smart Glasses',
+        description: "Participated in developing and implementing AI-powered glasses with a companion app designed to support visually impaired individuals in navigating their environment.",
+        tools: ['Raspberry Pi', 'MQTT', 'PyTorch', 'Expo Go', 'React Native'],
+        role: 'Backend & IoT Developer',
+        code: '',
+        demo: 'https://heyzine.com/flip-book/b2aac33f01.html',
+    },
+    {
+        id: 3,
         name: 'X2X Plugin for Hexabot',
         description: "Won 1st place at Orange AI Hackathon with the X2X plugin for Hexabot, a visual chatbot conversation flow management tool. X2X is a set of plugins and helpers that enables conversion between different modalities, such as speech, text, and vision.",
         tools: ['TypeScript', 'Node.js', 'Hexastack'],
@@ -18,7 +27,7 @@ export const projectsData = [
         demo: '',
     },
     {
-        id: 3,
+        id: 4,
         name: 'Intelligent Network Security Analysis Toolkit',
         description: "Currently leading the development of INSecAT, a comprehensive web application security scanning platform. The toolkit provides both external (black-box) and internal (white-box) security assessments by integrating multiple cybersecurity technologies.",
         tools: ['Python', 'NestJS', 'React', 'FastAPI', 'Docker', 'Shodan API', 'Nmap', 'Snyk', 'OWASP ZAP'],
@@ -27,7 +36,7 @@ export const projectsData = [
         demo: '',
     },
     {
-        id: 4,
+        id: 5,
         name: 'Phishing Domain Detection & Creation',
         description: "During my internship at Pwn&Patch, I integrated a component for phishing domain detection (for blue teaming) and phishing domain creation (for red teaming). While also allowing the generation of similar-looking domains for security testing.",
         tools: ['Dnstwist', 'Python', 'Ruby on Rails', 'Bootstrap'],
@@ -35,15 +44,6 @@ export const projectsData = [
         code: '',
         demo: '',
     },
-    {
-        id: 5,
-        name: 'The Boy who dreamt too far...',
-        description: "Won 1st place in the IAC Playground GameJam with our dream-themed video game. The game was built using Unity and C++, featuring pixel art created in Aseprite. We also crafted an engaging pitch using Canva.",
-        tools: ['Unity', 'C++', 'Aseprite', 'Canva'],
-        role: 'Game Developer',
-        code: '',
-        demo: '',
-    }
 ];
 
 export const projectslength = projectsData.length;
