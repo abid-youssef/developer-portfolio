@@ -1,6 +1,6 @@
 {
   "name": "developer-portfolio",
-  "description": "Portfolio of Abu Said",
+  "description": "Personal portfolio of Youssef Abid — software engineer & cybersecurity researcher",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,7 +12,7 @@
   "dependencies": {
     "@emailjs/browser": "^4.3.1",
     "@lottiefiles/dotlottie-react": "^0.13.2",
-    "@next/third-parties": "15.1.1",
+    "@vercel/analytics": "^2.0.1",
     "axios": "^1.6.8",
     "gsap": "^3.12.7",
     "lottie-react": "^2.4.1",

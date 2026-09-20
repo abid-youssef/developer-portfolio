@@ -1,12 +1,30 @@
+# Portfolio — Youssef Abid
 
----
+Personal portfolio site for Youssef Abid — software engineer and cybersecurity researcher.
 
-# [Portfolio Origin ](https://github.com/said7388/developer-portfolio)
+Built with Next.js (App Router), React, and Tailwind CSS, with GSAP/Lottie for section animations.
 
----
+## Stack
 
-# Developer Portfolio
+- **Framework:** Next.js (App Router) + React
+- **Styling:** Tailwind CSS + SCSS
+- **Animation:** GSAP, Lottie
+- **Analytics:** Vercel Analytics
+- **Contact form:** EmailJS + reCAPTCHA
 
-This is my fork of the developer portfolio mentioned above, in this version i've refined and customized many aspects along with adding a new terminal animation, a new contributions section along with other minor details.
+## Development
 
-## View live preview [here](https://abusaid.netlify.app/).
+```bash
+npm install
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000).
+
+## Content
+
+Site content (experience, projects, skills, education) lives in `utils/data/`.
+
+## Deployment
+
+Deployed on [Vercel](https://vercel.com), connected to this repository — pushes to `main` deploy automatically.
