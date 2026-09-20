@@ -48,34 +48,41 @@ function Experience() {
                     key={experience.id}
                     backgroundColor="#101123"
                     borderRadius={12}
-                    colors={['#16f2b3', '#8b5cf6', '#ec4899']}
+                    colors={experience.colors}
                   >
-                    <div className="p-3 relative">
-                      <Image
-                        src="/blur-23.svg"
-                        alt="Hero"
-                        width={1080}
-                        height={200}
-                        className="absolute bottom-0 opacity-80"
-                      />
-                      <div className="flex justify-center">
-                        <p className="text-xs sm:text-sm text-[#16f2b3]">
-                          {experience.duration}
+                    <div className="p-4 sm:p-5">
+                      <div className="flex items-center gap-x-4 mb-4">
+                        {experience.logo ? (
+                          <Image
+                            src={experience.logo}
+                            alt={`${experience.company} logo`}
+                            width={40}
+                            height={40}
+                            className="h-10 w-10 rounded-md object-contain bg-white/5 p-1"
+                          />
+                        ) : (
+                          <div className="text-violet-400 transition-all duration-300">
+                            <BsPersonWorkspace size={32} />
+                          </div>
+                        )}
+                        <p className="text-sm sm:text-base font-medium text-white">
+                          {experience.company}
                         </p>
                       </div>
-                      <div className="flex items-center gap-x-8 px-3 py-5">
-                        <div className="text-violet-500  transition-all duration-300 hover:scale-125">
-                          <BsPersonWorkspace size={36} />
-                        </div>
-                        <div>
-                          <p className="text-base sm:text-xl mb-2 font-medium uppercase">
-                            {experience.title}
-                          </p>
-                          <p className="text-sm sm:text-base">
-                            {experience.company}
-                          </p>
-                        </div>
-                      </div>
+
+                      <ul className="flex flex-col gap-3 border-l border-white/10 pl-4">
+                        {experience.roles.map((role, index) => (
+                          <li key={index} className="relative">
+                            <span className="absolute -left-[21px] top-1.5 h-2 w-2 rounded-full bg-[#16f2b3]" />
+                            <p className="text-base sm:text-lg font-medium uppercase leading-snug">
+                              {role.title}
+                            </p>
+                            <p className="text-xs sm:text-sm text-[#16f2b3]">
+                              {role.duration}
+                            </p>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </BorderGlow>
                 ))

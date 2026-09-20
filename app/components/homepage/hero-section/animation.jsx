@@ -42,11 +42,10 @@ const HackerTyping = () => {
         <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f56]" />
         <span className="h-2.5 w-2.5 rounded-full bg-[#ffbd2e]" />
         <span className="h-2.5 w-2.5 rounded-full bg-[#27c93f]" />
-        <span className="ml-2 font-mono text-xs text-[#5c6b5c]">youssef@portfolio: ~</span>
       </div>
 
       {/* Content with text */}
-      <div className="relative z-10 p-6 font-mono text-[#33ff33] opacity-90">
+      <div className="relative z-10 min-h-[320px] p-6 font-mono text-[#33ff33] opacity-90">
         <TypeAnimation
           sequence={[
             `$ Initializing system...\n

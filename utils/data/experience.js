@@ -1,62 +1,76 @@
 export const experiences = [
   {
     id: 1,
-    title: "Security Engineer, Security & DevSecOps",
     company: "Caelor",
-    duration: "(Feb 2026 - Present)"
+    logo: null,
+    colors: ['#3b82f6', '#8b5cf6', '#16f2b3'],
+    roles: [
+      { title: "Security Engineer, Security & DevSecOps", duration: "(Feb 2026 - Present)" },
+      { title: "DevSecOps Engineer", duration: "(Sep 2025 - Feb 2026)" },
+      { title: "Penetration Tester, Intern", duration: "(Jul 2025 - Sep 2025)" },
+    ]
   },
   {
     id: 2,
-    title: "DevSecOps Engineer",
-    company: "Caelor",
-    duration: "(Sep 2025 - Feb 2026)"
+    company: "Université du Québec à Chicoutimi (UQAC)",
+    logo: null,
+    colors: ['#1d4ed8', '#0ea5e9', '#a5f3fc'],
+    roles: [
+      { title: "Researcher, Network Security & Machine Learning", duration: "(Jun 2026 - Present)" },
+    ]
   },
   {
     id: 3,
-    title: "Penetration Tester, Intern",
-    company: "Caelor",
-    duration: "(Jul 2025 - Sep 2025)"
+    company: "International Cybersecurity Olympiad (ICO)",
+    logo: null,
+    colors: ['#f59e0b', '#fbbf24', '#fde68a'],
+    roles: [
+      { title: "International Scientific Committee Member & Mentor", duration: "(Feb 2024 - Present)" },
+    ]
   },
   {
     id: 4,
-    title: "Technical Director",
     company: "Securinets INSAT, The first CyberSecurity Association in Tunisia",
-    duration: "(Sep 2024 - Sep 2025)"
+    logo: null,
+    colors: ['#16f2b3', '#8b5cf6', '#ec4899'],
+    roles: [
+      { title: "Technical Director", duration: "(Sep 2024 - Sep 2025)" },
+    ]
   },
   {
     id: 5,
-    title: "Researcher, Network Security & Machine Learning",
-    company: "Université du Québec à Chicoutimi (UQAC)",
-    duration: "(Jun 2026 - Present)"
+    company: "CyberSphere Congress, National Cyber Security Congress",
+    logo: null,
+    colors: ['#7c3aed', '#db2777', '#f472b6'],
+    roles: [
+      { title: "President, Organizing Committee (5th edition)", duration: "(2024)" },
+    ]
   },
   {
     id: 6,
-    title: "International Scientific Committee Member & Mentor",
-    company: "International Cybersecurity Olympiad (ICO)",
-    duration: "(Feb 2024 - Present)"
+    company: "Pwn & Patch",
+    logo: null,
+    colors: ['#ef4444', '#f97316', '#fbbf24'],
+    roles: [
+      { title: "Cybersecurity Development Intern", duration: "(Jun 2024 - Aug 2024)" },
+    ]
   },
   {
     id: 7,
-    title: "President, Organizing Committee (5th edition)",
-    company: "CyberSphere Congress, National Cyber Security Congress",
-    duration: "(2024)"
+    company: "IEEE INSAT Computer Society",
+    logo: null,
+    colors: ['#0057b8', '#00629b', '#60a5fa'],
+    roles: [
+      { title: "Project Manager & Technical Team Member", duration: "(Jan 2025 - Jan 2026)" },
+    ]
   },
   {
     id: 8,
-    title: "Cybersecurity Development Intern",
-    company: "Pwn & Patch",
-    duration: "(Jun 2024 - Aug 2024)"
-  },
-  {
-    id: 9,
-    title: "Project Manager & Technical Team Member",
-    company: "IEEE INSAT Computer Society",
-    duration: "(Jan 2025 - Jan 2026)"
-  },
-  {
-    id: 10,
-    title: "Web Developer",
     company: "Freelance",
-    duration: "(Dec 2024 - Present)"
-  }
+    logo: null,
+    colors: ['#16f2b3', '#64748b', '#0ea5e9'],
+    roles: [
+      { title: "Web Developer", duration: "(Dec 2024 - Present)" },
+    ]
+  },
 ]
