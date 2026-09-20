@@ -13,6 +13,7 @@ const ContributionCard = ({ title, description, imageUrl, linkUrl, linkType = "w
       backgroundColor="#0a0a23"
       borderRadius={12}
       colors={['#00ffd5', '#8b5cf6', '#ec4899']}
+      animated
     >
       <div className="flex h-full flex-col overflow-hidden">
         <div className="aspect-video w-full overflow-hidden">

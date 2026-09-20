@@ -1,7 +1,6 @@
 "use client"
 import { TypeAnimation } from "react-type-animation"
 import styles from "./hacker-typing.module.css"
-import LetterGlitch from "../../reactbits/LetterGlitch/LetterGlitch"
 
 const HackerTyping = () => {
   return (
@@ -22,15 +21,6 @@ const HackerTyping = () => {
             "linear-gradient(-45deg, rgba(0, 255, 90, 0.06), rgba(0, 255, 90, 0.12), rgba(0, 255, 90, 0.06), rgba(0, 255, 90, 0.12))",
         }}
       />
-
-      {/* Very faint glitch texture, sits above the gradient/glow layers but under the scanlines and text */}
-      <div className="pointer-events-none absolute inset-0 z-[1] opacity-[0.05]">
-        <LetterGlitch
-          glitchColors={['#16f2b3']}
-          glitchSpeed={70}
-          smooth
-        />
-      </div>
 
       {/* Horizontal scan lines that move across the screen */}
       <div className={styles.horizontalScanline}></div>

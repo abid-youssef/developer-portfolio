@@ -54,6 +54,7 @@ function Education() {
                     backgroundColor="#101123"
                     borderRadius={12}
                     colors={['#16f2b3', '#8b5cf6', '#ec4899']}
+                    animated
                   >
                     <div className="p-3 relative text-white">
                       <Image

@@ -49,8 +49,16 @@ function Experience() {
                     backgroundColor="#101123"
                     borderRadius={12}
                     colors={experience.colors}
+                    animated
                   >
                     <div className="p-4 sm:p-5">
+                      <div
+                        className="-mx-4 -mt-4 mb-4 h-1 sm:-mx-5 sm:-mt-5"
+                        style={{
+                          background: `linear-gradient(to right, ${experience.colors.join(', ')})`,
+                          borderRadius: '12px 12px 0 0',
+                        }}
+                      />
                       <div className="flex items-center gap-x-4 mb-4">
                         {experience.logo ? (
                           <Image
