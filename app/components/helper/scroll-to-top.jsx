@@ -21,9 +21,9 @@ const ScrollToTop = () => {
   if (!visible) return null;
 
   return (
-    <div className="fixed bottom-8 right-6 z-50">
+    <div className="fixed bottom-16 right-12 z-50">
       <SlingButton
-        size={52}
+        size={40}
         padColor="#0d1224"
         iconColor="#16f2b3"
         accentColor="#16f2b3"

@@ -148,6 +148,8 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  overflow: auto;
+  /* upstream default is `auto`; our cards contain decorative images wider
+     than the card (e.g. blur-23.svg), which triggered a visible scrollbar */
+  overflow: hidden;
   z-index: 1;
 }

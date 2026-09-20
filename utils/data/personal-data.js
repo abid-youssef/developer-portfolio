@@ -1,8 +1,8 @@
 export const personalData = {
   name: "YOUSSEF",
   profile: '/profile.png',
-  designation: "Security Engineer & Cybersecurity Researcher",
-  description: "I'm a security engineer working across application, cloud, and offensive security. At Caelor I built the AI-assisted triage pipeline that cut false-positive rates 80%+ and own SOC 2 Type II compliance for a SaaS platform serving 40+ EU customers. Outside of work I research network security at UQAC and sit on the International Cybersecurity Olympiad's Scientific Committee, mentoring the Tunisian national team to its first medals.",
+  designation: "Security Engineer & Software Engineering Student",
+  description: "I am a Security Engineer and software engineering student passionate about cybersecurity. I have experience in development, AI, and mostly CyberSecurity. I am always eager to learn and take on new challenges.",
   email: 'youssef.abid.se@gmail.com',
   phone: '+21650244122',
   address: 'Tunis, Tunisia',

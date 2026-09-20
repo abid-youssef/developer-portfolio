@@ -11,15 +11,15 @@ function Navbar() {
           <Link href="/" aria-label="Youssef Abid, home">
             <DepthText
               text="YOUSSEF"
-              layers={10}
-              depth={1}
-              tilt={4}
+              layers={18}
+              depth={2.6}
+              tilt={11}
               fontSize="1.875rem"
-              fontWeight={700}
+              fontWeight={800}
               faceColor="#16f2b3"
-              depthColor="#0d1224"
-              orbitSpeed={0.15}
-              shadow={false}
+              depthColor="#ec4899"
+              orbitSpeed={0.35}
+              shadow
             />
           </Link>
         </div>
