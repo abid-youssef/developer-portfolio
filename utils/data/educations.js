@@ -1,9 +1,9 @@
 export const educations = [
   {
     id: 1,
-    title: "Engineering cycle in Software Engineering",
-    duration: "2022 - Present",
-    institution: "National Institute of Applied Sciences and Technology",
+    title: "Engineering Degree (Cycle Ingénieur), Software Engineering",
+    duration: "Sep 2022 - Expected 2027",
+    institution: "National Institute of Applied Sciences and Technology (INSAT)",
   },
   {
     id: 2,

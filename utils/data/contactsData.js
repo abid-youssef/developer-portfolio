@@ -1,7 +1,7 @@
 export const contactsData = {
-    email: 'youssef.abid@insat.ucar.tn',
+    email: 'youssef.abid.se@gmail.com',
     phone: '+21650244122',
-    address: 'Ariana, Tunisia',
+    address: 'Tunis, Tunisia',
     github: 'https://github.com/abid-youssef',
     facebook: 'https://www.facebook.com/youssef.abid.1612',
     linkedIn: 'linkedin.com/in/youssef-abid-55a250295/',
