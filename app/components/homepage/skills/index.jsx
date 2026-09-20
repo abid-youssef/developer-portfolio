@@ -41,11 +41,8 @@ const SkillRow = ({ category }) => {
   const Icon = CATEGORY_ICONS[category.icon] || Code2;
   return (
     <div className="w-full">
-      <div className="mb-2 flex items-center gap-2 px-4 sm:px-6">
-        <Icon className="h-4 w-4 text-[#16f2b3]" />
-        <span className="text-sm font-semibold uppercase tracking-wider text-gray-300">
-          {category.category}
-        </span>
+      <div className="mb-2 flex items-center justify-center px-4 sm:px-6">
+        <Icon className="h-5 w-5 text-[#16f2b3]" />
       </div>
       <Marquee
         gradient={false}
