@@ -1,10 +1,10 @@
 // @flow strict
 
-import { skillCategories } from "@/utils/data/skills";
+import { complianceItems, skillCategories } from "@/utils/data/skills";
 import { skillsImage } from "@/utils/skill-image";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
-import { Cloud, Code2, ShieldCheck } from "lucide-react";
+import { BadgeCheck, Cloud, Code2, ShieldCheck } from "lucide-react";
 
 const CATEGORY_ICONS = {
   shield: ShieldCheck,
@@ -85,6 +85,18 @@ function Skills() {
       <div className="my-8 flex flex-col gap-8">
         {skillCategories.map((category) => (
           <SkillRow key={category.category} category={category} />
+        ))}
+      </div>
+
+      <div className="flex flex-wrap items-center justify-center gap-3 px-4">
+        {complianceItems.map((item) => (
+          <span
+            key={item}
+            className="flex items-center gap-2 rounded-full border border-[#1f223c] bg-[#11152c] px-3 py-1.5 text-xs text-gray-300 sm:text-sm"
+          >
+            <BadgeCheck className="h-4 w-4 text-[#16f2b3]" />
+            {item}
+          </span>
         ))}
       </div>
     </div>
