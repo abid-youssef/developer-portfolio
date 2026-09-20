@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { AnimatePresence, motion } from "motion/react";
 import { ExternalLink, Github, X } from "lucide-react";
 import { contributions } from "@/utils/data/contributions";
 import BorderGlow from "../../reactbits/BorderGlow/BorderGlow";
@@ -24,45 +25,53 @@ const LinkTag = ({ linkUrl, linkType }) => (
   </Link>
 );
 
-const ContributionCard = ({ contribution, onOpen }) => {
+const ContributionCard = ({ contribution, onOpen, index }) => {
   const { title, description, imageUrl, linkUrl, linkType = "website", date } = contribution;
   return (
-    <BorderGlow
-      className="group h-full cursor-pointer"
-      backgroundColor="#0a0a23"
-      borderRadius={12}
-      colors={['#00ffd5', '#8b5cf6', '#ec4899']}
+    <motion.div
+      className="h-full"
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.4, delay: (index % 3) * 0.08 }}
     >
-      <div
-        className="flex h-full flex-col overflow-hidden"
-        onClick={() => onOpen(contribution)}
-        role="button"
-        tabIndex={0}
-        onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && onOpen(contribution)}
+      <BorderGlow
+        className="group h-full cursor-pointer"
+        backgroundColor="#0a0a23"
+        borderRadius={12}
+        colors={['#00ffd5', '#8b5cf6', '#ec4899']}
       >
-        <div className="aspect-video w-full overflow-hidden">
-          <Image
-            src={imageUrl || "/placeholder.svg"}
-            alt={title}
-            width={600}
-            height={340}
-            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-          />
-        </div>
-        <div className="flex flex-1 flex-col p-4">
-          <div className="flex items-start justify-between gap-3">
-            <h3 className="text-lg font-bold text-white">{title}</h3>
-            {date && <span className="shrink-0 text-xs text-[#00ffd5]">{date}</span>}
+        <div
+          className="flex h-full flex-col overflow-hidden"
+          onClick={() => onOpen(contribution)}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && onOpen(contribution)}
+        >
+          <div className="aspect-video w-full overflow-hidden">
+            <Image
+              src={imageUrl || "/placeholder.svg"}
+              alt={title}
+              width={600}
+              height={340}
+              className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+            />
           </div>
-          <p className="mt-2 flex-1 text-sm text-gray-300">{description}</p>
-          {linkUrl && (
-            <div className="mt-4 flex items-center">
-              <LinkTag linkUrl={linkUrl} linkType={linkType} />
+          <div className="flex flex-1 flex-col p-4">
+            <div className="flex items-start justify-between gap-3">
+              <h3 className="text-lg font-bold text-white">{title}</h3>
+              {date && <span className="shrink-0 text-xs text-[#00ffd5]">{date}</span>}
             </div>
-          )}
+            <p className="mt-2 flex-1 text-sm text-gray-300">{description}</p>
+            {linkUrl && (
+              <div className="mt-4 flex items-center">
+                <LinkTag linkUrl={linkUrl} linkType={linkType} />
+              </div>
+            )}
+          </div>
         </div>
-      </div>
-    </BorderGlow>
+      </BorderGlow>
+    </motion.div>
   );
 };
 
@@ -82,13 +91,21 @@ const ContributionModal = ({ contribution, onClose }) => {
   const { title, description, imageUrl, linkUrl, linkType = "website", date } = contribution;
 
   return (
-    <div
+    <motion.div
       className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm"
       onClick={onClose}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
     >
-      <div
+      <motion.div
         className="relative flex max-h-[90vh] w-full max-w-3xl flex-col overflow-hidden rounded-xl border border-white/10 bg-[#0a0a23] shadow-2xl"
         onClick={(e) => e.stopPropagation()}
+        initial={{ opacity: 0, scale: 0.92, y: 16 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.95, y: 8 }}
+        transition={{ type: "spring", stiffness: 340, damping: 28 }}
       >
         <button
           onClick={onClose}
@@ -118,8 +135,8 @@ const ContributionModal = ({ contribution, onClose }) => {
             </div>
           )}
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
@@ -160,13 +177,17 @@ export default function ContributionsSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <CTFShowcaseCard onOpen={() => setCtfGalleryOpen(true)} />
           {contributions.map((contribution, index) => (
-            <ContributionCard key={index} contribution={contribution} onOpen={setSelected} />
+            <ContributionCard key={index} index={index} contribution={contribution} onOpen={setSelected} />
           ))}
         </div>
       </div>
 
-      <ContributionModal contribution={selected} onClose={() => setSelected(null)} />
-      {ctfGalleryOpen && <CTFGalleryModal open={ctfGalleryOpen} onClose={() => setCtfGalleryOpen(false)} />}
+      <AnimatePresence>
+        {selected && <ContributionModal contribution={selected} onClose={() => setSelected(null)} />}
+      </AnimatePresence>
+      <AnimatePresence>
+        {ctfGalleryOpen && <CTFGalleryModal open={ctfGalleryOpen} onClose={() => setCtfGalleryOpen(false)} />}
+      </AnimatePresence>
     </section>
   );
 }

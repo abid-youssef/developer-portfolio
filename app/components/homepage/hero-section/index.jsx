@@ -5,12 +5,22 @@
 import { personalData } from "@/utils/data/personal-data";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "motion/react";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { FaFacebook } from "react-icons/fa";
 import { MdDownload } from "react-icons/md";
 import { RiContactsFill } from "react-icons/ri";
 import HackerTyping from "./animation";
 
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
 
 function HeroSection() {
   return (
@@ -24,17 +34,25 @@ function HeroSection() {
       />
 
       <div className="grid grid-cols-1 items-start lg:grid-cols-2 lg:gap-12 gap-y-8">
-        <div className="order-2 lg:order-1 flex flex-col items-start justify-center p-2 pb-20 md:pb-10 lg:pt-10">
-          <h1 className="text-3xl font-bold leading-10 text-white md:font-extrabold lg:text-[2.6rem] lg:leading-[3.5rem]">
+        <motion.div
+          className="order-2 lg:order-1 flex flex-col items-start justify-center p-2 pb-20 md:pb-10 lg:pt-10"
+          variants={container}
+          initial="hidden"
+          animate="show"
+        >
+          <motion.h1
+            variants={item}
+            className="text-3xl font-bold leading-10 text-white md:font-extrabold lg:text-[2.6rem] lg:leading-[3.5rem]"
+          >
             Hello, <br />
             This is {' '}
             <span className=" text-pink-500">{personalData.name}</span>
             {` , I'm a `}
             <span className=" text-[#16f2b3]">{personalData.designation}</span>
             .
-          </h1>
+          </motion.h1>
 
-          <div className="my-12 flex items-center gap-5">
+          <motion.div variants={item} className="my-12 flex items-center gap-5">
             <Link
               href={personalData.github}
               target='_blank'
@@ -56,9 +74,9 @@ function HeroSection() {
             >
               <FaFacebook size={30} />
             </Link>
-          </div>
+          </motion.div>
 
-          <div className="flex items-center gap-3">
+          <motion.div variants={item} className="flex items-center gap-3">
             <Link href="#contact" className="bg-gradient-to-r to-pink-500 from-violet-600 p-[1px] rounded-full transition-all duration-300 hover:from-pink-500 hover:to-violet-600">
               <button className="px-3 text-xs md:px-8 py-3 md:py-4 bg-[#0d1224] rounded-full border-none text-center md:text-sm font-medium uppercase tracking-wider text-[#ffff] no-underline transition-all duration-200 ease-out  md:font-semibold flex items-center gap-1 hover:gap-3">
                 <span>Contact me</span>
@@ -71,14 +89,19 @@ function HeroSection() {
               <span>Get Resume</span>
               <MdDownload size={16} />
             </Link>
-          </div>
+          </motion.div>
 
-        </div>
-        <div className="order-1 lg:order-2 from-[#0d1224] border-[#1b2c68a0] relative rounded-lg border bg-gradient-to-r to-[#0a0d37]">
+        </motion.div>
+        <motion.div
+          className="order-1 lg:order-2 from-[#0d1224] border-[#1b2c68a0] relative rounded-lg border bg-gradient-to-r to-[#0a0d37]"
+          initial={{ opacity: 0, scale: 0.96, y: 12 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+        >
 
         < HackerTyping />
 
-        </div>
+        </motion.div>
       </div>
     </section>
   );

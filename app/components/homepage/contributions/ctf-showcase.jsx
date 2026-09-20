@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { AnimatePresence, motion } from "motion/react";
 import { ChevronLeft, ChevronRight, Trophy, X } from "lucide-react";
 import { ctfAchievements } from "@/utils/data/ctf-achievements";
 import BorderGlow from "../../reactbits/BorderGlow/BorderGlow";
@@ -30,54 +31,75 @@ export const ctfStats = { wins, topPlacements, totalCTFs };
 
 export const CTFShowcaseCard = ({ onOpen }) => {
   return (
-    <BorderGlow className="group h-full cursor-pointer" backgroundColor="#0a0a23" borderRadius={12} colors={["#facc15", "#8b5cf6", "#16f2b3"]}>
-      <div
-        className="flex h-full flex-col overflow-hidden"
-        onClick={onOpen}
-        role="button"
-        tabIndex={0}
-        onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && onOpen()}
-      >
-        <div className="relative aspect-video w-full overflow-hidden">
-          <Image
-            src={ctfAchievements[0].imageUrl}
-            alt="CTF competitions"
-            width={600}
-            height={340}
-            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-          />
-          <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/80 via-black/10 to-transparent p-4">
-            <div className="flex items-center gap-2 text-white">
-              <Trophy className="h-5 w-5 text-yellow-400" />
-              <span className="text-sm font-bold">Browse all {totalCTFs} CTFs</span>
+    <motion.div
+      className="h-full"
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.4 }}
+      whileHover={{ y: -4 }}
+    >
+      <BorderGlow className="group h-full cursor-pointer" backgroundColor="#0a0a23" borderRadius={12} colors={["#facc15", "#8b5cf6", "#16f2b3"]}>
+        <div
+          className="flex h-full flex-col overflow-hidden"
+          onClick={onOpen}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && onOpen()}
+        >
+          <div className="relative aspect-video w-full overflow-hidden">
+            <Image
+              src={ctfAchievements[0].imageUrl}
+              alt="CTF competitions"
+              width={600}
+              height={340}
+              className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/80 via-black/10 to-transparent p-4">
+              <motion.div
+                className="flex items-center gap-2 text-white"
+                animate={{ y: [0, -4, 0] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <Trophy className="h-5 w-5 text-yellow-400" />
+                <span className="text-sm font-bold">Browse all {totalCTFs} CTFs</span>
+              </motion.div>
+            </div>
+          </div>
+          <div className="flex flex-1 flex-col p-4">
+            <h3 className="text-lg font-bold text-white">CTF Competitions</h3>
+            <p className="mt-2 flex-1 text-sm text-gray-300">
+              Competitive CTF record across Tunisia and internationally, from local qualifiers to a regional championship final.
+            </p>
+            <div className="mt-4 flex flex-wrap gap-2 text-xs">
+              <span className="rounded-full bg-yellow-400/10 px-2.5 py-1 font-semibold text-yellow-400">{wins} wins</span>
+              <span className="rounded-full bg-violet-400/10 px-2.5 py-1 font-semibold text-violet-300">{topPlacements}+ top placements</span>
+              <span className="rounded-full bg-[#16f2b3]/10 px-2.5 py-1 font-semibold text-[#16f2b3]">{totalCTFs} CTFs played</span>
             </div>
           </div>
         </div>
-        <div className="flex flex-1 flex-col p-4">
-          <h3 className="text-lg font-bold text-white">CTF Competitions</h3>
-          <p className="mt-2 flex-1 text-sm text-gray-300">
-            Competitive CTF record across Tunisia and internationally, from local qualifiers to a regional championship final.
-          </p>
-          <div className="mt-4 flex flex-wrap gap-2 text-xs">
-            <span className="rounded-full bg-yellow-400/10 px-2.5 py-1 font-semibold text-yellow-400">{wins} wins</span>
-            <span className="rounded-full bg-violet-400/10 px-2.5 py-1 font-semibold text-violet-300">{topPlacements}+ top placements</span>
-            <span className="rounded-full bg-[#16f2b3]/10 px-2.5 py-1 font-semibold text-[#16f2b3]">{totalCTFs} CTFs played</span>
-          </div>
-        </div>
-      </div>
-    </BorderGlow>
+      </BorderGlow>
+    </motion.div>
   );
 };
 
+const slideVariants = {
+  enter: (direction) => ({ x: direction > 0 ? 60 : -60, opacity: 0 }),
+  center: { x: 0, opacity: 1 },
+  exit: (direction) => ({ x: direction > 0 ? -60 : 60, opacity: 0 }),
+};
+
 export const CTFGalleryModal = ({ open, onClose }) => {
-  const [index, setIndex] = useState(0);
+  const [[index, direction], setSlide] = useState([0, 0]);
+
+  const go = (dir) => setSlide(([i]) => [(i + dir + totalCTFs) % totalCTFs, dir]);
 
   useEffect(() => {
     if (!open) return;
     const handleKey = (e) => {
       if (e.key === "Escape") onClose();
-      if (e.key === "ArrowLeft") setIndex((i) => (i - 1 + totalCTFs) % totalCTFs);
-      if (e.key === "ArrowRight") setIndex((i) => (i + 1) % totalCTFs);
+      if (e.key === "ArrowLeft") go(-1);
+      if (e.key === "ArrowRight") go(1);
     };
     window.addEventListener("keydown", handleKey);
     document.body.style.overflow = "hidden";
@@ -87,15 +109,25 @@ export const CTFGalleryModal = ({ open, onClose }) => {
     };
   }, [open, onClose]);
 
-  if (!open) return null;
   const achievement = ctfAchievements[index];
   const colors = badgeColors(achievement);
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm" onClick={onClose}>
-      <div
+    <motion.div
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm"
+      onClick={onClose}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+    >
+      <motion.div
         className="relative flex max-h-[90vh] w-full max-w-3xl flex-col overflow-hidden rounded-xl border border-white/10 bg-[#0a0a23] shadow-2xl"
         onClick={(e) => e.stopPropagation()}
+        initial={{ opacity: 0, scale: 0.92, y: 16 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.95, y: 8 }}
+        transition={{ type: "spring", stiffness: 340, damping: 28 }}
       >
         <button
           onClick={onClose}
@@ -113,23 +145,35 @@ export const CTFGalleryModal = ({ open, onClose }) => {
           </div>
         </div>
 
-        <div className="relative max-h-[50vh] w-full overflow-auto bg-black">
-          <Image
-            src={achievement.imageUrl}
-            alt={achievement.event}
-            width={1600}
-            height={1000}
-            className="h-auto w-full object-contain"
-          />
+        <div className="relative max-h-[50vh] w-full overflow-hidden bg-black">
+          <AnimatePresence mode="wait" custom={direction} initial={false}>
+            <motion.div
+              key={index}
+              custom={direction}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{ duration: 0.25, ease: "easeOut" }}
+            >
+              <Image
+                src={achievement.imageUrl}
+                alt={achievement.event}
+                width={1600}
+                height={1000}
+                className="h-auto max-h-[50vh] w-full object-contain"
+              />
+            </motion.div>
+          </AnimatePresence>
           <button
-            onClick={() => setIndex((i) => (i - 1 + totalCTFs) % totalCTFs)}
+            onClick={() => go(-1)}
             aria-label="Previous"
             className="absolute left-2 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-black/60 text-white transition-colors hover:bg-black/80"
           >
             <ChevronLeft className="h-5 w-5" />
           </button>
           <button
-            onClick={() => setIndex((i) => (i + 1) % totalCTFs)}
+            onClick={() => go(1)}
             aria-label="Next"
             className="absolute right-2 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-black/60 text-white transition-colors hover:bg-black/80"
           >
@@ -152,7 +196,7 @@ export const CTFGalleryModal = ({ open, onClose }) => {
           {achievement.stat && <p className="text-sm text-gray-300">{achievement.stat}</p>}
           <p className="mt-2 text-xs text-gray-500">{index + 1} / {totalCTFs}</p>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
