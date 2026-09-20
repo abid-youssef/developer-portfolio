@@ -59,13 +59,4 @@ export const experiences = [
       { title: "Project Manager & Technical Team Member", duration: "(Jan 2025 - Jan 2026)" },
     ]
   },
-  {
-    id: 8,
-    company: "Freelance",
-    logo: null,
-    colors: ['#16f2b3', '#64748b', '#0ea5e9'],
-    roles: [
-      { title: "Web Developer", duration: "(Dec 2024 - Present)" },
-    ]
-  },
 ]
