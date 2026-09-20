@@ -1,5 +1,6 @@
 // @flow strict
 import Link from "next/link";
+import DepthText from "./reactbits/DepthText/DepthText";
 
 
 function Navbar() {
@@ -7,10 +8,19 @@ function Navbar() {
     <nav className="bg-transparent">
       <div className="flex items-center justify-between py-5">
         <div className="flex flex-shrink-0 items-center">
-          <Link
-            href="/"
-            className=" text-[#16f2b3] text-3xl font-bold">
-            YOUSSEF
+          <Link href="/" aria-label="Youssef Abid, home">
+            <DepthText
+              text="YOUSSEF"
+              layers={10}
+              depth={1}
+              tilt={4}
+              fontSize="1.875rem"
+              fontWeight={700}
+              faceColor="#16f2b3"
+              depthColor="#0d1224"
+              orbitSpeed={0.15}
+              shadow={false}
+            />
           </Link>
         </div>
 

@@ -8,7 +8,8 @@ import { BsPersonWorkspace } from "react-icons/bs";
 import experience from '../../../assets/lottie/code.json';
 const AnimationLottie = dynamic(() => import("../../helper/animation-lottie"), {
   ssr: false,
-});import GlowCard from "../../helper/glow-card";
+});
+import BorderGlow from "../../reactbits/BorderGlow/BorderGlow";
 
 function Experience() {
   return (
@@ -43,7 +44,12 @@ function Experience() {
             <div className="flex flex-col gap-6">
               {
                 experiences.map(experience => (
-                  <GlowCard key={experience.id} identifier={`experience-${experience.id}`}>
+                  <BorderGlow
+                    key={experience.id}
+                    backgroundColor="#101123"
+                    borderRadius={12}
+                    colors={['#16f2b3', '#8b5cf6', '#ec4899']}
+                  >
                     <div className="p-3 relative">
                       <Image
                         src="/blur-23.svg"
@@ -71,7 +77,7 @@ function Experience() {
                         </div>
                       </div>
                     </div>
-                  </GlowCard>
+                  </BorderGlow>
                 ))
               }
             </div>

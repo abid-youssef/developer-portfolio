@@ -1,22 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { FaArrowUp } from "react-icons/fa6";
+import SlingButton from "../reactbits/SlingButton/SlingButton";
 
-const DEFAULT_BTN_CLS =
-  "fixed bottom-8 right-6 z-50 flex items-center rounded-full bg-gradient-to-r from-pink-500 to-violet-600 p-4 hover:text-xl transition-all duration-300 ease-out";
 const SCROLL_THRESHOLD = 50;
 
 const ScrollToTop = () => {
-  const [btnCls, setBtnCls] = useState(DEFAULT_BTN_CLS);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > SCROLL_THRESHOLD) {
-        setBtnCls(DEFAULT_BTN_CLS.replace(" hidden", ""));
-      } else {
-        setBtnCls(DEFAULT_BTN_CLS + " hidden");
-      }
+      setVisible(window.scrollY > SCROLL_THRESHOLD);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
@@ -24,12 +18,21 @@ const ScrollToTop = () => {
     };
   }, []);
 
-  const onClickBtn = () => window.scrollTo({ top: 0, behavior: "smooth" });
+  if (!visible) return null;
 
   return (
-    <button className={btnCls} onClick={onClickBtn}>
-      <FaArrowUp />
-    </button>
+    <div className="fixed bottom-8 right-6 z-50">
+      <SlingButton
+        size={52}
+        padColor="#0d1224"
+        iconColor="#16f2b3"
+        accentColor="#16f2b3"
+        wellColor="#1a1443"
+        bandColor="#6d28d9"
+        ariaLabel="Scroll to top"
+        onSend={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      />
+    </div>
   );
 };
 

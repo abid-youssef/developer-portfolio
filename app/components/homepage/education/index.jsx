@@ -9,7 +9,7 @@ import lottieFile from '../../../assets/lottie/study.json';
 const AnimationLottie = dynamic(() => import("../../helper/animation-lottie"), {
   ssr: false,
 });
-import GlowCard from "../../helper/glow-card";
+import BorderGlow from "../../reactbits/BorderGlow/BorderGlow";
 
 function Education() {
   return (
@@ -49,7 +49,12 @@ function Education() {
             <div className="flex flex-col gap-6">
               {
                 educations.map(education => (
-                  <GlowCard key={education.id} identifier={`education-${education.id}`}>
+                  <BorderGlow
+                    key={education.id}
+                    backgroundColor="#101123"
+                    borderRadius={12}
+                    colors={['#16f2b3', '#8b5cf6', '#ec4899']}
+                  >
                     <div className="p-3 relative text-white">
                       <Image
                         src="/blur-23.svg"
@@ -75,7 +80,7 @@ function Education() {
                         </div>
                       </div>
                     </div>
-                  </GlowCard>
+                  </BorderGlow>
                 ))
               }
             </div>

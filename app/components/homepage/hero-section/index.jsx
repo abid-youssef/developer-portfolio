@@ -10,6 +10,7 @@ import { FaFacebook } from "react-icons/fa";
 import { MdDownload } from "react-icons/md";
 import { RiContactsFill } from "react-icons/ri";
 import HackerTyping from "./animation";
+import LetterGlitch from "../../reactbits/LetterGlitch/LetterGlitch";
 
 
 function HeroSection() {
@@ -22,6 +23,16 @@ function HeroSection() {
         height={795}
         className="absolute -top-[98px] -z-10"
       />
+
+      <div className="pointer-events-none absolute inset-0 -z-10 opacity-[0.12]">
+        <LetterGlitch
+          glitchColors={['#16f2b3', '#7c3aed', '#ec4899']}
+          glitchSpeed={90}
+          centerVignette
+          outerVignette
+          smooth
+        />
+      </div>
 
       <div className="grid grid-cols-1 items-start lg:grid-cols-2 lg:gap-12 gap-y-8">
         <div className="order-2 lg:order-1 flex flex-col items-start justify-center p-2 pb-20 md:pb-10 lg:pt-10">

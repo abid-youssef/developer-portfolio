@@ -4,43 +4,51 @@ import Image from "next/image";
 import Link from "next/link";
 import { ExternalLink, Github } from "lucide-react";
 import { contributions } from "@/utils/data/contributions";
+import BorderGlow from "../../reactbits/BorderGlow/BorderGlow";
 
 const ContributionCard = ({ title, description, imageUrl, linkUrl, linkType = "website", date }) => {
   return (
-    <div className="group relative overflow-hidden rounded-lg border border-[#1a1a2e] bg-[#0a0a23]/50 transition-all hover:border-[#00ffd5]">
-      <div className="aspect-video w-full overflow-hidden">
-        <Image
-          src={imageUrl || "/placeholder.svg"}
-          alt={title}
-          width={600}
-          height={340}
-          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-        />
-      </div>
-      <div className="p-4">
-        <div className="flex items-start justify-between">
-          <h3 className="text-lg font-bold text-white">{title}</h3>
-          {date && <span className="text-xs text-[#00ffd5]">{date}</span>}
+    <BorderGlow
+      className="group h-full"
+      backgroundColor="#0a0a23"
+      borderRadius={12}
+      colors={['#00ffd5', '#8b5cf6', '#ec4899']}
+    >
+      <div className="flex h-full flex-col overflow-hidden">
+        <div className="aspect-video w-full overflow-hidden">
+          <Image
+            src={imageUrl || "/placeholder.svg"}
+            alt={title}
+            width={600}
+            height={340}
+            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+          />
         </div>
-        <p className="mt-2 text-sm text-gray-300">{description}</p>
-        {linkUrl && (
-          <div className="mt-4 flex items-center">
-            <Link
-              href={linkUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center text-sm text-[#00ffd5] hover:text-[#ff0080] transition-colors"
-            >
-              {linkType === "repo" ? <Github className="mr-1 h-4 w-4" /> : <ExternalLink className="mr-1 h-4 w-4" />}
-              {linkType === "slides" && "View Slides"}
-              {linkType === "video" && "Watch Video"}
-              {linkType === "repo" && "View Code"}
-              {linkType === "website" && "Learn More"}
-            </Link>
+        <div className="flex flex-1 flex-col p-4">
+          <div className="flex items-start justify-between gap-3">
+            <h3 className="text-lg font-bold text-white">{title}</h3>
+            {date && <span className="shrink-0 text-xs text-[#00ffd5]">{date}</span>}
           </div>
-        )}
+          <p className="mt-2 flex-1 text-sm text-gray-300">{description}</p>
+          {linkUrl && (
+            <div className="mt-4 flex items-center">
+              <Link
+                href={linkUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center text-sm text-[#00ffd5] hover:text-[#ff0080] transition-colors"
+              >
+                {linkType === "repo" ? <Github className="mr-1 h-4 w-4" /> : <ExternalLink className="mr-1 h-4 w-4" />}
+                {linkType === "slides" && "View Slides"}
+                {linkType === "video" && "Watch Video"}
+                {linkType === "repo" && "View Code"}
+                {linkType === "website" && "Learn More"}
+              </Link>
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </BorderGlow>
   );
 };
 
