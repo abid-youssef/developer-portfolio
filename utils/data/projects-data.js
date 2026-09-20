@@ -10,7 +10,7 @@ export const projectsData = [
     },
     {
         id: 2,
-        name: 'SMARTSHIELD - AI-Driven EDR Platform',
+        name: 'SMARTSHIELD',
         description: "Secured 2nd place in the CS Challenge at IEEE TSYP12 competition with our project which is an AI-driven cybersecurity platform designed to enhance automatic threat detection, classification, and response. It offers an end-to-end cybersecurity solution from log extraction to automated report generation.",
         tools: ['Zeek', 'OpenArgus', 'RabbitMQ', 'ELK Stack', 'Docker', 'NestJS', 'React', 'PyTorch', 'FastAPI', 'Go'],
         role: 'Backend & AI Developer',
@@ -19,7 +19,7 @@ export const projectsData = [
     },
     {
         id: 3,
-        name: 'Intelligent Network Security Analysis Toolkit (INSecAT)',
+        name: 'INSecAT',
         description: "Directed development of INSecAT, a comprehensive web application security scanning platform. The toolkit provides both external (black-box) and internal (white-box) security assessments by integrating multiple cybersecurity technologies.",
         tools: ['Python', 'NestJS', 'React', 'FastAPI', 'Docker', 'Shodan API', 'Nmap', 'Snyk', 'OWASP ZAP'],
         role: 'Project Manager & Lead Developer',
@@ -64,7 +64,7 @@ export const projectsData = [
     },
     {
         id: 8,
-        name: 'SmartSight - AI-Powered Wearable for the Visually Impaired',
+        name: 'SmartSight',
         description: "Built AI-powered glasses on a Raspberry Pi 5 implementing object detection, depth estimation, and a smart decision system that translates visual scenes into audio instructions over a companion mobile app, to help visually impaired individuals navigate their environment.",
         tools: ['Raspberry Pi 5', 'MQTT', 'PyTorch', 'Expo Go', 'React Native'],
         role: 'Backend & IoT Developer',
