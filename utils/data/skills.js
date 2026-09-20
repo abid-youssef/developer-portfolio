@@ -9,6 +9,9 @@ export const skillCategories = [
       "Bugcrowd",
       "GitLab Security Scanning",
       "Git",
+      "SOC 2 Type II",
+      "ISO/IEC 27001",
+      "GDPR",
     ],
   },
   {
@@ -46,5 +49,3 @@ export const skillCategories = [
     ],
   },
 ];
-
-export const complianceItems = ["SOC 2 Type II", "ISO/IEC 27001", "GDPR"];

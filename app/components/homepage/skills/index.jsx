@@ -1,6 +1,6 @@
 // @flow strict
 
-import { complianceItems, skillCategories } from "@/utils/data/skills";
+import { skillCategories } from "@/utils/data/skills";
 import { skillsImage } from "@/utils/skill-image";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
@@ -18,24 +18,31 @@ const MARQUEE_DIRECTION = {
   cloud: "left",
 };
 
-const SkillChip = ({ skill }) => (
-  <div className="w-32 min-w-fit h-fit flex flex-col items-center justify-center transition-all duration-500 m-2 sm:m-3 rounded-lg group relative hover:scale-[1.12] cursor-pointer">
-    <div className="h-full w-full rounded-lg border border-[#1f223c] bg-[#11152c] shadow-none group-hover:border-violet-500 transition-all duration-500">
-      <div className="flex flex-col items-center justify-center gap-2 p-4">
-        <div className="h-7 sm:h-8">
-          <Image
-            src={skillsImage(skill)?.src}
-            alt={skill}
-            width={32}
-            height={32}
-            className="h-full w-auto rounded-lg"
-          />
+const SkillChip = ({ skill }) => {
+  const icon = skillsImage(skill);
+  return (
+    <div className="w-32 min-w-fit h-fit flex flex-col items-center justify-center transition-all duration-500 m-2 sm:m-3 rounded-lg group relative hover:scale-[1.12] cursor-pointer">
+      <div className="h-full w-full rounded-lg border border-[#1f223c] bg-[#11152c] shadow-none group-hover:border-violet-500 transition-all duration-500">
+        <div className="flex flex-col items-center justify-center gap-2 p-4">
+          <div className="flex h-7 items-center justify-center sm:h-8">
+            {icon ? (
+              <Image
+                src={icon.src}
+                alt={skill}
+                width={32}
+                height={32}
+                className="h-full w-auto rounded-lg"
+              />
+            ) : (
+              <BadgeCheck className="h-6 w-6 text-[#16f2b3] sm:h-7 sm:w-7" />
+            )}
+          </div>
+          <p className="text-white text-xs sm:text-sm whitespace-nowrap">{skill}</p>
         </div>
-        <p className="text-white text-xs sm:text-sm whitespace-nowrap">{skill}</p>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 const SkillRow = ({ category }) => {
   const Icon = CATEGORY_ICONS[category.icon] || Code2;
@@ -85,18 +92,6 @@ function Skills() {
       <div className="my-8 flex flex-col gap-8">
         {skillCategories.map((category) => (
           <SkillRow key={category.category} category={category} />
-        ))}
-      </div>
-
-      <div className="flex flex-wrap items-center justify-center gap-3 px-4">
-        {complianceItems.map((item) => (
-          <span
-            key={item}
-            className="flex items-center gap-2 rounded-full border border-[#1f223c] bg-[#11152c] px-3 py-1.5 text-xs text-gray-300 sm:text-sm"
-          >
-            <BadgeCheck className="h-4 w-4 text-[#16f2b3]" />
-            {item}
-          </span>
         ))}
       </div>
     </div>
