@@ -10,10 +10,31 @@ import "./css/globals.scss";
 const inter = Inter({ subsets: ["latin"] });
 import Script from "next/script";
 
+// Set NEXT_PUBLIC_APP_URL in Vercel project settings to the real production
+// domain so OpenGraph/Twitter card URLs resolve correctly.
+const siteUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+const title = "Youssef Abid — Security Engineer";
+const description =
+  "Portfolio of Youssef Abid: security engineering, DevSecOps, and applied ML security research.";
+
 export const metadata = {
-  title: "Portfolio of Youssef - Software Engineering Student and Cybersecurity Enthusiast",
-  description:
-    "This is the portfolio of Youssef. I am a Software Engineering Student with a strong passion in cybersecurity. I love to learn new things and invest in new opportunities. I am a quick learner and an even quicker thinker and I am always looking for new challenges.",
+  metadataBase: new URL(siteUrl),
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    url: siteUrl,
+    siteName: "Youssef Abid",
+    images: ["/card.png"],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/card.png"],
+  },
 };
 
 export default function RootLayout({ children }) {
