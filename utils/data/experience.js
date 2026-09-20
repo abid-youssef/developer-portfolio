@@ -2,7 +2,7 @@ export const experiences = [
   {
     id: 1,
     company: "Caelor",
-    logo: null,
+    logo: "/logos/caelor.png",
     colors: ['#3b82f6', '#8b5cf6', '#16f2b3'],
     roles: [
       { title: "Security Engineer, Security & DevSecOps", duration: "(Feb 2026 - Present)" },
@@ -33,19 +33,12 @@ export const experiences = [
     id: 4,
     company: "Securinets INSAT, The first CyberSecurity Association in Tunisia",
     logo: "/logos/securinets.jpg",
+    logoRound: true,
     colors: ['#16f2b3', '#8b5cf6', '#ec4899'],
     roles: [
       { title: "Technical Team Member", duration: "(Sep 2025 - Present)" },
       { title: "Technical Director", duration: "(Sep 2024 - Sep 2025)" },
-    ]
-  },
-  {
-    id: 5,
-    company: "CyberSphere Congress, National Cyber Security Congress",
-    logo: null,
-    colors: ['#7c3aed', '#db2777', '#f472b6'],
-    roles: [
-      { title: "President, Organizing Committee (5th edition)", duration: "(2024)" },
+      { title: "President, Organizing Committee, CyberSphere Congress (5th edition)", duration: "(2024)" },
     ]
   },
   {

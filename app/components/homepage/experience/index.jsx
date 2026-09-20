@@ -53,9 +53,9 @@ function Experience() {
                     <div className="p-4 sm:p-5">
                       <div className="flex items-center gap-x-4 mb-4">
                         <div
-                          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full ring-1 ring-inset"
+                          className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-full ring-1 ring-inset"
                           style={{
-                            backgroundColor: `${experience.colors[0]}1f`,
+                            backgroundColor: experience.logo ? '#f5f5f5' : `${experience.colors[0]}1f`,
                             '--tw-ring-color': `${experience.colors[0]}55`,
                           }}
                         >
@@ -63,9 +63,13 @@ function Experience() {
                             <Image
                               src={experience.logo}
                               alt={`${experience.company} logo`}
-                              width={28}
-                              height={28}
-                              className="h-7 w-7 object-contain"
+                              width={experience.logoRound ? 44 : 28}
+                              height={experience.logoRound ? 44 : 28}
+                              className={
+                                experience.logoRound
+                                  ? "h-11 w-11 object-cover"
+                                  : "h-7 w-7 object-contain"
+                              }
                             />
                           ) : (
                             <BsPersonWorkspace size={20} style={{ color: experience.colors[0] }} />
