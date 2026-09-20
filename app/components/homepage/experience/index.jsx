@@ -49,30 +49,28 @@ function Experience() {
                     backgroundColor="#101123"
                     borderRadius={12}
                     colors={experience.colors}
-                    animated
                   >
                     <div className="p-4 sm:p-5">
-                      <div
-                        className="-mx-4 -mt-4 mb-4 h-1 sm:-mx-5 sm:-mt-5"
-                        style={{
-                          background: `linear-gradient(to right, ${experience.colors.join(', ')})`,
-                          borderRadius: '12px 12px 0 0',
-                        }}
-                      />
                       <div className="flex items-center gap-x-4 mb-4">
-                        {experience.logo ? (
-                          <Image
-                            src={experience.logo}
-                            alt={`${experience.company} logo`}
-                            width={40}
-                            height={40}
-                            className="h-10 w-10 rounded-md object-contain bg-white/5 p-1"
-                          />
-                        ) : (
-                          <div className="text-violet-400 transition-all duration-300">
-                            <BsPersonWorkspace size={32} />
-                          </div>
-                        )}
+                        <div
+                          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full ring-1 ring-inset"
+                          style={{
+                            backgroundColor: `${experience.colors[0]}1f`,
+                            '--tw-ring-color': `${experience.colors[0]}55`,
+                          }}
+                        >
+                          {experience.logo ? (
+                            <Image
+                              src={experience.logo}
+                              alt={`${experience.company} logo`}
+                              width={28}
+                              height={28}
+                              className="h-7 w-7 object-contain"
+                            />
+                          ) : (
+                            <BsPersonWorkspace size={20} style={{ color: experience.colors[0] }} />
+                          )}
+                        </div>
                         <p className="text-sm sm:text-base font-medium text-white">
                           {experience.company}
                         </p>
@@ -81,11 +79,14 @@ function Experience() {
                       <ul className="flex flex-col gap-3 border-l border-white/10 pl-4">
                         {experience.roles.map((role, index) => (
                           <li key={index} className="relative">
-                            <span className="absolute -left-[21px] top-1.5 h-2 w-2 rounded-full bg-[#16f2b3]" />
+                            <span
+                              className="absolute -left-[21px] top-1.5 h-2 w-2 rounded-full"
+                              style={{ backgroundColor: experience.colors[0] }}
+                            />
                             <p className="text-base sm:text-lg font-medium uppercase leading-snug">
                               {role.title}
                             </p>
-                            <p className="text-xs sm:text-sm text-[#16f2b3]">
+                            <p className="text-xs sm:text-sm" style={{ color: experience.colors[0] }}>
                               {role.duration}
                             </p>
                           </li>
