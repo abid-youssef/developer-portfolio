@@ -9,6 +9,7 @@ export const personalData = {
   github: 'https://github.com/abid-youssef',
   facebook: 'https://www.facebook.com/youssef.abid.1612',
   linkedIn: 'https://linkedin.com/in/youssef-abid-55a250295/',
+  medium: 'https://medium.com/@youssef.abid',
   twitter: '',
   stackOverflow: '',
   leetcode: "",
