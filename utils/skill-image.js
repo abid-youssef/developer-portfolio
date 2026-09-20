@@ -92,6 +92,8 @@ import kafka from '../public/logos/skills/kafka.svg'
 import neo4j from '../public/logos/skills/neo4j.svg'
 import qdrant from '../public/logos/skills/qdrant.svg'
 import medium from '../public/logos/skills/medium.svg'
+import snyk from '../public/logos/skills/snyk.svg'
+import owaspZap from '../public/logos/skills/owasp.svg'
 
 
 
@@ -283,6 +285,10 @@ export const skillsImage = (skill) => {
       return qdrant;
     case 'medium':
       return medium;
+    case 'snyk':
+      return snyk;
+    case 'owasp zap':
+      return owaspZap;
     default:
       break;
   }

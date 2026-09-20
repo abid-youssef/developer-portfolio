@@ -2,7 +2,14 @@ export const skillCategories = [
   {
     category: "Security",
     icon: "shield",
-    items: ["Burp Suite", "Bugcrowd", "GitLab Security Scanning", "Git"],
+    items: [
+      "Burp Suite",
+      "OWASP ZAP",
+      "Snyk",
+      "Bugcrowd",
+      "GitLab Security Scanning",
+      "Git",
+    ],
   },
   {
     category: "Dev & AI",
@@ -17,6 +24,10 @@ export const skillCategories = [
       "C++",
       "PHP",
       "Angular",
+      "Redis",
+      "Kafka",
+      "Neo4j",
+      "Qdrant",
     ],
   },
   {
@@ -30,11 +41,8 @@ export const skillCategories = [
       "Docker",
       "Terraform",
       "Ansible",
+      "GitLab CI/CD",
       "Linux",
-      "Redis",
-      "Kafka",
-      "Neo4j",
-      "Qdrant",
     ],
   },
 ];
