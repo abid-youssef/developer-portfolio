@@ -67,6 +67,7 @@ const ContributionCard = ({ contribution, onOpen }) => {
 
 const ContributionModal = ({ contribution, onClose }) => {
   useEffect(() => {
+    if (!contribution) return;
     const handleKey = (e) => e.key === "Escape" && onClose();
     window.addEventListener("keydown", handleKey);
     document.body.style.overflow = "hidden";
@@ -74,7 +75,7 @@ const ContributionModal = ({ contribution, onClose }) => {
       window.removeEventListener("keydown", handleKey);
       document.body.style.overflow = "";
     };
-  }, [onClose]);
+  }, [contribution, onClose]);
 
   if (!contribution) return null;
   const { title, description, imageUrl, linkUrl, linkType = "website", date } = contribution;
