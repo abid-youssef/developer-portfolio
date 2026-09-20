@@ -1,9 +1,69 @@
+"use client";
+
 // @flow strict
 
-import { skillsData } from "@/utils/data/skills";
+import { skillCategories } from "@/utils/data/skills";
 import { skillsImage } from "@/utils/skill-image";
 import Image from "next/image";
-import Marquee from "react-fast-marquee";
+import { motion } from "motion/react";
+import { Cloud, Code2, ShieldCheck, TerminalSquare } from "lucide-react";
+import BorderGlow from "../../reactbits/BorderGlow/BorderGlow";
+
+const CATEGORY_ICONS = {
+  shield: ShieldCheck,
+  terminal: TerminalSquare,
+  cloud: Cloud,
+  code: Code2,
+};
+
+const CATEGORY_COLORS = {
+  shield: ["#ff0080", "#8b5cf6", "#16f2b3"],
+  terminal: ["#16f2b3", "#00ffd5", "#8b5cf6"],
+  cloud: ["#00ffd5", "#8b5cf6", "#ff0080"],
+  code: ["#8b5cf6", "#ff0080", "#16f2b3"],
+};
+
+const SkillPill = ({ skill }) => {
+  const icon = skillsImage(skill);
+  return (
+    <span className="flex items-center gap-2 rounded-full border border-[#1f223c] bg-[#0d1224] px-3 py-1.5 text-xs text-gray-200 transition-colors duration-300 hover:border-violet-500 sm:text-sm">
+      {icon ? (
+        <Image src={icon.src} alt="" width={16} height={16} className="h-4 w-4 shrink-0" />
+      ) : (
+        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#16f2b3]" />
+      )}
+      {skill}
+    </span>
+  );
+};
+
+const SkillCategoryCard = ({ category, index }) => {
+  const Icon = CATEGORY_ICONS[category.icon] || Code2;
+  const colors = CATEGORY_COLORS[category.icon] || ["#16f2b3", "#8b5cf6", "#00ffd5"];
+  return (
+    <motion.div
+      className="h-full"
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.4, delay: (index % 2) * 0.1 }}
+    >
+      <BorderGlow className="h-full" backgroundColor="#0a0a23" borderRadius={12} colors={colors}>
+        <div className="flex h-full flex-col gap-4 p-6">
+          <div className="flex items-center gap-2">
+            <Icon className="h-5 w-5 text-[#16f2b3]" />
+            <h3 className="text-lg font-bold text-white">{category.category}</h3>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {category.items.map((skill) => (
+              <SkillPill key={skill} skill={skill} />
+            ))}
+          </div>
+        </div>
+      </BorderGlow>
+    </motion.div>
+  );
+};
 
 function Skills() {
   return (
@@ -26,43 +86,12 @@ function Skills() {
         </div>
       </div>
 
-      <div className="w-full my-12">
-        <Marquee
-          gradient={false}
-          speed={80}
-          pauseOnHover={true}
-          pauseOnClick={true}
-          delay={0}
-          play={true}
-          direction="left"
-        >
-          {skillsData.map((skill, id) => (
-            <div className="w-36 min-w-fit h-fit flex flex-col items-center justify-center transition-all duration-500 m-3 sm:m-5 rounded-lg group relative hover:scale-[1.15] cursor-pointer"
-              key={id}>
-              <div className="h-full w-full rounded-lg border border-[#1f223c] bg-[#11152c] shadow-none shadow-gray-50 group-hover:border-violet-500 transition-all duration-500">
-                <div className="flex -translate-y-[1px] justify-center">
-                  <div className="w-3/4">
-                    <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-violet-500 to-transparent" />
-                  </div>
-                </div>
-                <div className="flex flex-col items-center justify-center gap-3 p-6">
-                  <div className="h-8 sm:h-10">
-                    <Image
-                      src={skillsImage(skill)?.src}
-                      alt={skill}
-                      width={40}
-                      height={40}
-                      className="h-full w-auto rounded-lg"
-                    />
-                  </div>
-                  <p className="text-white text-sm sm:text-lg">
-                    {skill}
-                  </p>
-                </div>
-              </div>
-            </div>
+      <div className="px-4 py-8 md:px-6 lg:px-12">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          {skillCategories.map((category, index) => (
+            <SkillCategoryCard key={category.category} category={category} index={index} />
           ))}
-        </Marquee>
+        </div>
       </div>
     </div>
   );
