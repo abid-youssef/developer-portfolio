@@ -52,5 +52,11 @@ export const experiences = [
     title: "Project Manager & Technical Team Member",
     company: "IEEE INSAT Computer Society",
     duration: "(Jan 2025 - Jan 2026)"
+  },
+  {
+    id: 10,
+    title: "Web Developer",
+    company: "Freelance",
+    duration: "(Dec 2024 - Present)"
   }
 ]
