@@ -82,6 +82,17 @@ import linux from '../app/assets/svg/skills/linux.svg'
 import sqlalchemy from '../app/assets/svg/skills/sqlalchemy.svg'
 import fastapi from '../app/assets/svg/skills/fastapi.svg'
 
+import burpsuite from '../public/logos/skills/burpsuite.svg'
+import bugcrowd from '../public/logos/skills/bugcrowd.svg'
+import gitlabsecurity from '../public/logos/skills/gitlab-security.svg'
+import terraform from '../public/logos/skills/terraform.svg'
+import ansible from '../public/logos/skills/ansible.svg'
+import redis from '../public/logos/skills/redis.svg'
+import kafka from '../public/logos/skills/kafka.svg'
+import neo4j from '../public/logos/skills/neo4j.svg'
+import qdrant from '../public/logos/skills/qdrant.svg'
+import medium from '../public/logos/skills/medium.svg'
+
 
 
 export const skillsImage = (skill) => {
@@ -251,6 +262,27 @@ export const skillsImage = (skill) => {
       return sqlalchemy;
     case 'fastapi':
       return fastapi;
+    case 'burp suite':
+      return burpsuite;
+    case 'bugcrowd':
+      return bugcrowd;
+    case 'gitlab ci/cd':
+    case 'gitlab security scanning':
+      return gitlabsecurity;
+    case 'terraform':
+      return terraform;
+    case 'ansible':
+      return ansible;
+    case 'redis':
+      return redis;
+    case 'kafka':
+      return kafka;
+    case 'neo4j':
+      return neo4j;
+    case 'qdrant':
+      return qdrant;
+    case 'medium':
+      return medium;
     default:
       break;
   }
