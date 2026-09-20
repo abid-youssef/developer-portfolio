@@ -43,9 +43,6 @@ function Navbar() {
             <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/#contributions"><div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">CONTRIBUTIONS</div></Link>
           </li>
           <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/#ctf-achievements"><div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">CTFS</div></Link>
-          </li>
-          <li>
             <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/#projects"><div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">PROJECTS</div></Link>
           </li>
         </ul>

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ExternalLink, Github, X } from "lucide-react";
 import { contributions } from "@/utils/data/contributions";
 import BorderGlow from "../../reactbits/BorderGlow/BorderGlow";
+import { CTFGalleryModal, CTFShowcaseCard } from "./ctf-showcase";
 
 const LinkTag = ({ linkUrl, linkType }) => (
   <Link
@@ -124,6 +125,7 @@ const ContributionModal = ({ contribution, onClose }) => {
 
 export default function ContributionsSection() {
   const [selected, setSelected] = useState(null);
+  const [ctfGalleryOpen, setCtfGalleryOpen] = useState(false);
   return (
     <section id="contributions" className="relative z-50 border-t my-12 lg:my-24 border-[#25213b]">
       {/* Decorative background SVG */}
@@ -147,7 +149,7 @@ export default function ContributionsSection() {
         <div className="flex items-center">
           <span className="w-24 h-[2px] bg-[#1a1443]"></span>
           <span className="bg-[#1a1443] w-fit text-white p-2 px-5 text-xl rounded-md">
-            Contributions
+            Contributions & Competitions
           </span>
           <span className="w-24 h-[2px] bg-[#1a1443]"></span>
         </div>
@@ -156,6 +158,7 @@ export default function ContributionsSection() {
       {/* Grid of Cards */}
       <div className="py-8 px-4 md:px-6 lg:px-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <CTFShowcaseCard onOpen={() => setCtfGalleryOpen(true)} />
           {contributions.map((contribution, index) => (
             <ContributionCard key={index} contribution={contribution} onOpen={setSelected} />
           ))}
@@ -163,6 +166,7 @@ export default function ContributionsSection() {
       </div>
 
       <ContributionModal contribution={selected} onClose={() => setSelected(null)} />
+      {ctfGalleryOpen && <CTFGalleryModal open={ctfGalleryOpen} onClose={() => setCtfGalleryOpen(false)} />}
     </section>
   );
 }

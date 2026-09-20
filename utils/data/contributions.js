@@ -7,24 +7,6 @@ export const contributions = [
     date: "2026",
     },
     {
-    title: "1st Place, CyberMaze v5",
-    description: "Won first place at CyberMaze v5, a CTF organized by Engineers Spark at Iset'Com.",
-    imageUrl: "/image/contributions/CyberMaze.jpg",
-    date: "2026",
-    },
-    {
-    title: "1st Place, Darknets CTF 3.0",
-    description: "Ranked 1st out of all teams (31 challenges solved, 9112 points) at Darknets CTF 3.0, a jeopardy-style CTF held December 6-7, 2025.",
-    imageUrl: "/image/contributions/Darknets.jpg",
-    date: "2025",
-    },
-    {
-    title: "3rd Place, DataQuest 2026",
-    description: "Won 3rd place at DataQuest 2026, hosted by IEEE INSAT Computer Society and ACM INSAT Student Chapter.",
-    imageUrl: "/image/contributions/DataQuest.jpg",
-    date: "2026",
-    },
-    {
     title: "HackBack 2025 Co-Author & Workshop Instructor",
     description: "Co-Authored competitions and conducted a workshop for CyberSphere 2025.",
     imageUrl: "/image/contributions/CyberSphere.webp",

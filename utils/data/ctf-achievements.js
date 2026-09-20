@@ -31,6 +31,20 @@ export const ctfAchievements = [
     imageUrl: "/image/contributions/Darknets.jpg",
   },
   {
+    place: 1,
+    event: "Hack to the Future CTF",
+    organizer: "Securinets EPS",
+    year: "2025",
+    imageUrl: "/image/ctf/httf2025.jpeg",
+  },
+  {
+    place: 3,
+    event: "CyberTek CTF",
+    organizer: "CyberTek",
+    year: "2025",
+    imageUrl: "/image/ctf/cybertek2025.jpeg",
+  },
+  {
     place: 2,
     event: "Darkest Hour CTF",
     organizer: "Securinets INSAT",
@@ -100,5 +114,13 @@ export const ctfAchievements = [
     year: "2024",
     stat: "12426 points",
     imageUrl: "/image/ctf/cybertek2024.jpg",
+  },
+  {
+    label: "Finalist",
+    event: "HackFest 8.0",
+    organizer: "HackFest",
+    year: "2024",
+    stat: "Qualified to the finals",
+    imageUrl: "/image/ctf/hackfest2024.jpg",
   },
 ];
