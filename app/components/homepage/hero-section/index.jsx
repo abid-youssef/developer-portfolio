@@ -11,7 +11,7 @@ import { FaFacebook } from "react-icons/fa";
 import { SiMedium } from "react-icons/si";
 import { MdDownload } from "react-icons/md";
 import { RiContactsFill } from "react-icons/ri";
-import GlitchText from "../../reactbits/GlitchText/GlitchText";
+import ScrambledText from "../../reactbits/ScrambledText/ScrambledText";
 import HackerTyping from "./animation";
 
 const container = {
@@ -48,7 +48,7 @@ function HeroSection() {
           >
             Hello, <br />
             This is {' '}
-            <GlitchText className="text-pink-500">{personalData.name}</GlitchText>
+            <ScrambledText className="text-pink-500" radius={60} scrambleChars=".$:">{personalData.name}</ScrambledText>
             {` , I'm a `}
             <span className=" text-[#16f2b3]">{personalData.designation}</span>
             .

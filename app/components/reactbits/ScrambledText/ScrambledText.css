@@ -1,0 +1,9 @@
+.scrambled-text {
+  display: inline-block;
+  cursor: default;
+}
+
+.scrambled-text .char {
+  will-change: transform;
+  display: inline-block;
+}
